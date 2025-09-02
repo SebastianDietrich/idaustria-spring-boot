@@ -4,17 +4,17 @@ spring:
       client:
         registration:
           id-austria:
-            client-id: https://machmehr14.oa.r.appspot.com # your-client-id-from-id-austria
-            client-secret: UjG8S_6j_aP7TgMXv0R8IEhVPrssoI4I2wx6COdwg7Y= # your-client-secret-from-id-austria
+            client-id: https://www.e-movimento.com/springboot # your-client-id-from-id-austria
+            client-secret: x6UlL4fodvBn2jRNlzpQv21jLadQl3r2plcf9PKGTlc= # your-client-secret-from-id-austria
             authorization-grant-type: authorization_code
             scope: openid,profile
-            redirect-uri: "https://localhost:8080/login/oauth2/code/id-austria" # that uri must be set as one of the allowed redirect-uris (https only for id-austria)
+            redirect-uri: https://localhost:8443/login/oauth2/code/id-austria # that uri must be set as one of the allowed redirect-uris (https only for id-austria)
         provider:
           id-austria:
             issuer-uri: https://eid2.oesterreich.gv.at
 
 server:
-  port: ${PORT:8080}
+  port: 8443
   ssl: # to enable ssl for https://localhost:8080 since ID-Austria does not allow redirect-uri http://localhost... even on test instance
     enabled: true
     key-store: classpath:localhost.p12

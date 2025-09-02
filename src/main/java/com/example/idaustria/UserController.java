@@ -12,18 +12,20 @@ public class UserController {
     @GetMapping("/me")
     public Map<String, Object> me(@AuthenticationPrincipal IdAustriaOidcUser user) {
         return Map
-            .of(
-                "issuer",
-                user.getIssuer(),
-                "subject",
-                user.getSubject(),
-                "given_name",
-                user.getGivenName(),
-                "family_name",
-                user.getFamilyName(),
-                "main_address",
-                user.getMainAddress(),
-                "document_data",
-                user.getDocument());
+                .ofEntries(
+                    Map.entry("issuer", user.getIssuer()),
+                    Map.entry("subject", user.getSubject()),
+                    Map.entry("given_name", user.getGivenName()),
+                    Map.entry("family_name", user.getFamilyName()),
+                    Map.entry("main_address", user.getMainAddress()),
+                    Map.entry("document_data", user.getDocument()),
+                    Map.entry("nationality", user.getNationality()),
+                    Map.entry("passport", user.getPassport()),
+                    Map.entry("authorities", user.getAuthorities()),
+                    Map.entry("claims", user.getClaims()),
+                    Map.entry("gender", user.getGender()),
+                Map.entry("birthdate", user.getBirthdate()),
+                    Map.entry("vehicle", user.getVehicle()),
+                    Map.entry("main_address_registration_date", user.getMainAddressRegistrationDate()));
     }
 }
